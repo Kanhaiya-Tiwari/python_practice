@@ -25,3 +25,8 @@ while i <= 5:
     i+=1
 print("end of loop")
 
+# Using a for loop to iterate through a list of fruits and print each fruit
+fruits = ["apple", "banana", "mango", "grapes", "orange"]
+for fruit in fruits:
+    print(fruit)
+
