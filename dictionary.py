@@ -8,4 +8,10 @@ dics = {
    "topic" : {"chapter1" : "introduction", "chapter2" : "data types"}
 }
 print(dics)
-print(dics["kanhaiya"])
+print(dics["name"])
+dics.update({"name" : "karan"})
+print(dics)
+dics["age"] = 23
+print(dics)
+for key,value in dics.items():
+    print(f"key is {key} and value is {value}")
