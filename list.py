@@ -16,9 +16,4 @@ print(len(marks))
 print(dir(marks))
 print(marks.extend.__doc__)
 
-for mark in marks:
-    if marks = 45
-        print("found")
-    else:
-        print("not found")
     
