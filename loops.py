@@ -30,3 +30,11 @@ fruits = ["apple", "banana", "mango", "grapes", "orange"]
 for fruit in fruits:
     print(fruit)
 
+#Concept: Repeat operations
+#DevOps Example: Check multiple servers,Used in fleet automation
+
+servers = ["web-01", "web-02", "db-01"]
+
+for server in servers:
+    print(f"Checking {server}...")
+
