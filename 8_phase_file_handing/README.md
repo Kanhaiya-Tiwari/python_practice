@@ -48,7 +48,6 @@ f = open('file.txt', 'r')
 content = f.read()
 f.close()
 ```
-
 ### Reading Files
 
 **read() - Entire file as string:**

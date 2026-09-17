@@ -1,6 +1,4 @@
-"""
-File Handling Interview Questions and Answers
-
+File Handling Interview Questions
 === BASIC ===
 
 1. What is file handling?
