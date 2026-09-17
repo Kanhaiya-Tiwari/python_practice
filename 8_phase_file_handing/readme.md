@@ -1,0 +1,170 @@
+"""
+File Handling Interview Questions and Answers
+
+=== BASIC ===
+
+1. What is file handling?
+File handling is the process of working with files in Python.
+It includes creating, reading, writing, updating, and deleting files.
+Example: open('file.txt', 'r')
+
+2. Why do we use file handling?
+File handling allows us to store data permanently on disk.
+Without it, data only exists in memory and is lost when the program ends.
+Example: saving user information, logs, or configuration settings.
+
+3. Difference between text and binary files?
+Text files contain human-readable characters (ASCII, UTF-8).
+Example: .txt, .csv, .py files
+
+Binary files contain raw bytes that are not human-readable.
+Example: .jpg, .pdf, .exe files
+
+Text mode: open('file.txt', 'r')
+Binary mode: open('file.bin', 'rb')
+
+4. Difference between read(), readline(), and readlines()?
+read() returns the entire file content as one string.
+Example: content = f.read()
+
+readline() returns one line at a time.
+Example: line = f.readline()
+
+readlines() returns all lines as a list of strings.
+Example: lines = f.readlines()
+
+5. Difference between write() and append()?
+write() opens the file in 'w' mode and overwrites existing content.
+Example: f.write('new data')
+
+append() opens the file in 'a' mode and adds data at the end.
+Example: f.write('more data')
+
+=== INTERMEDIATE ===
+
+6. Why is the with statement recommended?
+The with statement automatically closes the file even if an error occurs.
+Example:
+with open('file.txt', 'r') as f:
+    content = f.read()
+
+Without 'with', you must manually close: f.close()
+The 'with' statement is safer and cleaner.
+
+7. Difference between "w" and "a"?
+"w" mode opens the file in write mode.
+It overwrites the file if it already exists.
+Example: f = open('file.txt', 'w')
+
+"a" mode opens the file in append mode.
+It adds content at the end without overwriting.
+Example: f = open('file.txt', 'a')
+
+8. Difference between "r" and "rb"?
+"r" mode opens the file in text reading mode.
+Example: f = open('file.txt', 'r')
+Content is returned as strings.
+
+"rb" mode opens the file in binary reading mode.
+Example: f = open('file.bin', 'rb')
+Content is returned as bytes.
+
+9. What happens if the file doesn't exist in "r" mode?
+A FileNotFoundError is raised.
+Example: FileNotFoundError: [Errno 2] No such file or directory: 'file.txt'
+
+Always check if the file exists before reading:
+import os
+if os.path.exists('file.txt'):
+    f = open('file.txt', 'r')
+
+10. What happens in "w" mode if the file already exists?
+The existing file is completely overwritten.
+All previous content is lost.
+Example: If file.txt contains 'old', after f.write('new'), it only contains 'new'.
+
+=== ADVANCED ===
+
+11. How do you copy a binary file?
+Read the binary file and write it to a new file.
+Example:
+with open('source.bin', 'rb') as f:
+    content = f.read()
+with open('destination.bin', 'wb') as f:
+    f.write(content)
+
+Or use shutil module:
+import shutil
+shutil.copy('source.bin', 'destination.bin')
+
+12. How do you safely read a large log file?
+Read the file in chunks instead of loading everything into memory.
+Example:
+with open('large.log', 'r') as f:
+    while True:
+        chunk = f.read(4096)  # Read 4KB at a time
+        if not chunk:
+            break
+        process(chunk)
+
+Or read line by line:
+with open('large.log', 'r') as f:
+    for line in f:
+        process(line)
+
+13. How do you handle FileNotFoundError?
+Use a try-except block.
+Example:
+try:
+    with open('file.txt', 'r') as f:
+        content = f.read()
+except FileNotFoundError:
+    print('File does not exist')
+
+14. How would you generate a backup report using Python?
+Example:
+import os
+import shutil
+from datetime import datetime
+
+def backup_files(source_dir, backup_dir):
+    timestamp = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+    backup_path = f'{backup_dir}/backup_{timestamp}'
+    
+    try:
+        shutil.copytree(source_dir, backup_path)
+        report = f'Backup completed at {timestamp}\n'
+        report += f'Source: {source_dir}\n'
+        report += f'Destination: {backup_path}\n'
+        
+        with open('backup_report.txt', 'a') as f:
+            f.write(report)
+        
+        print('Backup successful!')
+    except Exception as e:
+        error_log = f'Backup failed at {timestamp}: {str(e)}\n'
+        with open('backup_errors.txt', 'a') as f:
+            f.write(error_log)
+
+=== COMMON FILE MODES ===
+
+'r'  - Read (default, file must exist)
+'w'  - Write (creates new file, overwrites existing)
+'a'  - Append (creates new file, adds to existing)
+'x'  - Exclusive creation (fails if file exists)
+'b'  - Binary mode (can be combined: 'rb', 'wb')
+'t'  - Text mode (default, can be: 'rt', 'wt')
+'+' - Read and write (can be: 'r+', 'w+')
+
+=== BEST PRACTICES ===
+
+1. Always use 'with' statement for file operations
+2. Specify encoding explicitly: open('file.txt', 'r', encoding='utf-8')
+3. Check file existence before reading: if os.path.exists('file.txt')
+4. Use try-except for file operations
+5. Close files properly (automatic with 'with')
+6. Use pathlib for modern path handling
+7. Read large files in chunks, not all at once
+8. Use 'a' mode to append, not 'r+' mode
+
+"""
