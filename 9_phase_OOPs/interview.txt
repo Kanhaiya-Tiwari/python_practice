@@ -1,0 +1,96 @@
+Phase 9 — OOP Interview Questions and Answers
+
+Basic
+
+Q: What is OOP?
+A: Object-Oriented Programming is a programming paradigm that
+ organizes code around objects—instances of classes—that bundle 
+ data (attributes) and behavior (methods) together. It promotes
+  modularity, reuse, and abstraction.
+
+Q: What is the difference between a class and an object?
+A: A class is a blueprint or template that defines attributes 
+and methods. An object is an instance of a class with concrete 
+values for those attributes.
+
+Q: What is a constructor?
+A: A constructor is a special method used to initialize a new 
+object's state when it is created. In Python the constructor is 
+`__init__()`.
+
+Q: Why do we use self?
+A: `self` is the conventional name for the first parameter of 
+instance methods in Python. It refers to the specific object on 
+which the method is called, allowing access to instance 
+attributes and other methods.
+
+Q: What is the difference between instance variables and 
+class variables?
+A: Instance variables are tied to a specific object (each 
+object can have different values). Class variables are shared 
+across all instances of the class.
+
+Intermediate
+
+Q: What is inheritance?
+A: Inheritance lets a class (child/subclass) reuse
+ and extend the behavior and attributes of another 
+ class (parent/superclass), enabling code reuse 
+ and polymorphic design.
+
+Q: What is multiple inheritance?
+A: Multiple inheritance is when a class inherits 
+from more than one parent class, combining behaviors 
+from multiple sources. Python supports this but requires 
+careful method-resolution-order (MRO) considerations.
+
+Q: What is polymorphism?
+A: Polymorphism allows objects of different classes to be 
+treated through the same interface—e.g., different classes 
+implementing the same method name—so code can operate on them 
+interchangeably.
+
+Q: What is encapsulation?
+A: Encapsulation is the practice of bundling data and methods
+ and restricting direct access to some of an object's components 
+ (often using naming conventions like a single or double 
+ underscore in Python).
+
+Q: What is abstraction?
+A: Abstraction hides internal implementation details and exposes 
+only the necessary interface. It helps manage complexity by 
+presenting a simpler view to the user of the class.
+
+Advanced
+
+Q: What is the difference between method overloading and method
+ overriding?
+A: Method overloading refers to defining multiple methods with 
+the same name but different signatures (parameter lists) in the 
+same scope; the language chooses the correct one based on 
+arguments. Method overriding is when a subclass provides a new 
+implementation for a method defined in its superclass.
+
+Q: What is the difference between a static method and a class 
+method?
+A: A `@staticmethod` does not receive an implicit first argument
+ and behaves like a regular function defined in the class 
+ namespace. A `@classmethod` receives the class (`cls`) as the
+  first parameter and can access/modify class state.
+
+Q: What are magic methods?
+A: Magic methods (dunder methods) are special methods with 
+double underscores like `__init__`, `__str__`, `__add__`, used 
+by Python to implement built-in behavior and operator 
+overloading. They enable classes to integrate with Python's 
+language features.
+
+Q: Why doesn't Python support traditional method overloading?
+A: Python is dynamically typed and resolves function names at
+ runtime; the last definition wins, so traditional compile-time 
+ overloading by signature isn't built-in. Instead, Python 
+ encourages default arguments, `*args`/`**kwargs`, type checks,
+  or `functools.singledispatch`/third-party multiple-dispatch 
+  libraries to achieve similar behavior.
+
+
