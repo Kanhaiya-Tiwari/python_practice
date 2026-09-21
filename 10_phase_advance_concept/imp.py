@@ -6,7 +6,7 @@ def log_generator(filename):
             yield line.strip()
 # Create a list of running servers using a list comprehension.
 running_servers = [server for server in servers if server.status == "running"]
-# Combine server names and IP addresses with zip().
+# Combine server names and IP addrejoug, issses with zip().
 server_names = ["server1", "server2", "server3"]
 ip_addresses = ["192.168.1.1", "192.168.1.2", "192.168.1.3"]
 combined = list(zip(server_names, ip_addresses))
